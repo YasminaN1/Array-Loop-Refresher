@@ -2,7 +2,7 @@
 const foods = ['Pizza', 'Tacos', 'Ice Cream', 'Burgers', 'Pasta']
 
 // helper function: will display whatever HTML/text we pass into the #out div
-function render (html) {
+function render(html) {
   document.getElementById('out').innerHTML = html
 }
 
@@ -11,8 +11,15 @@ function render (html) {
      - Use a for...of loop
      - Output all foods into the #out div (as <p> tags or list items)
 */
-function listFoods () {
+function listFoods() {
   // code goes here
+  let output = ''
+  for (const food of foods) {
+    output += `<p>${food}</p>`
+  }
+
+  render(output)
+
 }
 
 /* 
@@ -20,8 +27,14 @@ function listFoods () {
      - Use a classic for loop with index
      - Output foods as an ordered list (<ol><li>...</li></ol>)
 */
-function numberedFoods () {
+function numberedFoods() {
   // code goes here
+  let output = `<ol class = "list-group list-group-numbered">`
+  for (let i = 0; i < foods.length; i++) {
+    output += `<li class="list-group-item"> ${foods[i]}</li>`
+  }
+  output += `</ol>`
+  render(output)
 }
 
 /* 
@@ -31,8 +44,23 @@ function numberedFoods () {
      - Only show foods that start with that letter
      - If no matches, display a "not found" message
 */
-function filterFoods () {
+function filterFoods() {
   // code goes here
+  const letter = prompt('Pick a letter to filter the list by:')
+  if (!letter) {
+    render(`<p class="text-muted m-0"> No letter entered.</p>`)
+    return
+  }
+
+  const lower = letter.toLowerCase()
+  const matches = foods.filter(f => f.toLowerCase().startsWith(lower))
+
+  const list = matches.map(item => `<li class = "list-group-item">${item}</li>`).join('')
+
+  if (matches.length = 0) {
+    render(`<p class="m=0">No foods found starting with '<strong>${letter}</strong>'</p>`)
+  }
+  render(`<ul class="list-group">${matches}</ul>`)
 }
 
 /* 
@@ -41,8 +69,9 @@ function filterFoods () {
      - Output each food as a Bootstrap card
      - Cards should be placed in a centered row
 */
-function forEachFoods () {
+function forEachFoods() {
   // code goes here
+  
 }
 
 // ---- Event listeners (buttons) ----
@@ -59,9 +88,18 @@ document.getElementById('btnForEach').addEventListener('click', forEachFoods)
   - Use .map() to create a new array with all foods in uppercase
   - Display the results as an unordered list (<ul>)
 */
-function uppercaseList () {
-  // TODO: Write your code here
+
+  function uppercaseList() {
+    //TODO: Write your code here
+  const upperFoods = foods.map(f => f.toUpperCase())
+  let output = '<ul>'
+  for (const food of upperFoods) {
+    output += `<li>${food}</li>`
+  }
+  output += '</ul>'
+  render(output)
 }
+
 
 /* 
   Task 2 — Reverse List
@@ -69,8 +107,14 @@ function uppercaseList () {
   - Show the foods array in reverse order
   - You may use a backwards loop OR the built-in .reverse()
 */
-function reverseList () {
+function reverseList() {
   // TODO: Write your code here
+    let output = '<ul>'
+  for (let i = foods.length - 1; i >= 0; i--) {
+    output += `<li>${foods[i]}</li>`
+  }
+  output += '</ul>'
+  render(output)
 }
 
 /* 
@@ -79,8 +123,17 @@ function reverseList () {
   - Use Math.random to pick a random food from the array
   - Display it in a Bootstrap card with a heading like "Today's Pick"
 */
-function randomFoodPicker () {
+function randomFoodPicker() {
   // TODO: Write your code here
+    const randomIndex = Math.floor(Math.random() * foods.length)
+  const randomFood = foods[randomIndex]
+  const output = `
+    <div class="card text-center p-3">
+      <h5 class="card-title">Today's Pick</h5>
+      <p class="card-text fs-4">${randomFood}</p>
+    </div>
+  `
+  render(output)
 }
 
 /* 
@@ -90,8 +143,14 @@ function randomFoodPicker () {
   - Count the number of characters in each one
   - Display results in the format: Food — X letters
 */
-function wordLengths () {
+function wordLengths() {
   // TODO: Write your code here
+   let output = '<ul>'
+  for (const food of foods) {
+    output += `<li>${food} — ${food.length} letters</li>`
+  }
+  output += '</ul>'
+  render(output)
 }
 
 // ---- Event listeners for the new buttons ----

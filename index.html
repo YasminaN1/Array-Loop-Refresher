@@ -10,13 +10,13 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
 
-    <link href="style.css" rel="stylesheet" />
+    <link href="style.css" rel="stylesheet"/>
 </head>
 
 <body>
-    <header class="py-4 border-bottom bg-dark text-white">
+     <header class="py-4 border-bottom text-dark" style="background-color: #ffc8dd;">
         <div class="container">
-            <h1 class="h4 m-0">🍂 JS Arrays & Loops Demo</h1>
+            <h1 class="h4 m-0">🍧JS Arrays & Loops Demo</h1>
         </div>
     </header>
 
@@ -27,26 +27,39 @@
                 <div class="card shadow">
                     <div class="card-body text-center">
                         <div class="btn-toolbar gap-2 mb-3 justify-content-center" role="toolbar">
-                            <button id="btnList" class="btn btn-primary">List Foods</button>
-                            <button id="btnNums" class="btn btn-success">Numbered List</button>
-                            <button id="btnFilter" class="btn btn-warning">Filter by Letter</button>
-                            <button id="btnForEach" class="btn btn-info">Food Cards</button>
+                            <button id="btnList" class="btn btn-primary">🍽️List Foods</button>
+                            <button id="btnNums" class="btn btn-success">🥗Numbered List</button>
+                            <button id="btnFilter" class="btn btn-warning">🍔Filter by Letter</button>
+                            <button id="btnForEach" class="btn btn-info">🧁Food Cards</button>
                         </div>
-                        <p class="text-secondary small m-0">Click a button to render below.</p>
+
+                        <!-- Student Challenge Buttons -->
+                        <div class="btn-toolbar gap-2 justify-content-center" role="toolbar">
+                            <button id="btnUppercase" class="btn btn-outline-primary">🌮Uppercase List</button>
+                            <button id="btnReverse" class="btn btn-outline-success">🍝Reverse List</button>
+                            <button id="btnRandom" class="btn btn-outline-warning">🥘Random Food Picker</button>
+                            <button id="btnLengths" class="btn btn-outline-info">🍱Word Lengths</button>
+                        </div>
+
+                        <p class="text-secondary small mt-3 m-0">Click a button to render below.</p>
                     </div>
                 </div>
             </div>
         </div>
 
         <!-- Row 2: Wide output area -->
-        <div class="row justify-content-center">
-            <div class="col-12 col-xl-10">
+       <div class="row justify-content-center">
+    <div class="col-12 col-xl-10">
+        <div class="card shadow">
+            <div class="card-body">
                 <h2 class="h6 text-uppercase text-secondary mb-3 text-center">Output</h2>
                 <div id="out" class="border rounded p-3 bg-light">
-                    Output will appear here…
+                    🍴 Your delicious results will appear here…
                 </div>
             </div>
         </div>
+    </div>
+</div>
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
