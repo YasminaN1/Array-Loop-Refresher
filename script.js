@@ -60,7 +60,7 @@ function filterFoods() {
   if (matches.length = 0) {
     render(`<p class="m=0">No foods found starting with '<strong>${letter}</strong>'</p>`)
   }
-  render(`<ul class="list-group">${matches}</ul>`)
+  render(`<ul class="list-group">${list}</ul>`)
 }
 
 /* 
